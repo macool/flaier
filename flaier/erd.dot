@@ -1,0 +1,50 @@
+digraph Flaier {
+rankdir = "LR";
+ranksep = "0.5";
+nodesep = "0.4";
+pad = "0.4,0.4";
+margin = "0,0";
+concentrate = "true";
+labelloc = "t";
+fontsize = "13";
+fontname = "Arial Bold";
+node[ shape  =  "Mrecord" , fontsize  =  "10" , fontname  =  "Arial" , margin  =  "0.07,0.05" , penwidth  =  "1.0"];
+edge[ fontname  =  "Arial" , fontsize  =  "7" , dir  =  "both" , arrowsize  =  "0.9" , penwidth  =  "1.0" , labelangle  =  "32" , labeldistance  =  "1.8"];
+rankdir = "TB";
+label = "Flaier domain model\n\n";
+m_Entidad [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Entidad</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="descripcion">descripcion <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+</table>
+>];
+m_Estado [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Estado</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="descripcion">descripcion <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+</table>
+>];
+m_Resultado [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Resultado</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="descripcion">descripcion <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+</table>
+>];
+m_Situacion [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Situacion</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="descripcion">descripcion <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+</table>
+>];
+  m_Entidad -> m_Situacion [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Situacion -> m_Estado [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_Estado -> m_Resultado [arrowhead = "normal", arrowtail = "none", weight = "2"];
+}

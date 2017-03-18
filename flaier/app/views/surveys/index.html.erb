@@ -1,0 +1,11 @@
+<h1>Entidades</h1>
+
+<ul>
+    <% @entidades.each do |entidad| %>
+        <li>
+            <%= link_to survey_path(entidad) do %>
+                <%= entidad.descripcion %>
+            <% end %>
+        </li>
+    <% end %>
+</ul>

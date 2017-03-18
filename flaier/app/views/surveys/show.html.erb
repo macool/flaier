@@ -1,0 +1,11 @@
+<h1>Situaciones</h1>
+
+<ul>
+    <% @situaciones.each do |situacion| %>
+        <li>
+            <%= link_to survey_status_path(survey_id: @entidad.id, id: situacion.id) do %>
+                <%= situacion.descripcion %>
+            <% end %>
+        </li>
+    <% end %>
+</ul>
