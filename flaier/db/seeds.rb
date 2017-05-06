@@ -50,4 +50,6 @@ Entidad.create!(
     descripcion: "Alabanza / Agradecimiento"
 )
 
-puts "done! DB seeded"AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+puts "created default admin admin@example.com/password"
+puts "done! DB seeded"
