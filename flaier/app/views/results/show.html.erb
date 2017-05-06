@@ -1,10 +1,14 @@
 <h1>Resultados</h1>
 
 <ul>
-    <% @resultados.each do |resultado| %>
+    <% @resultados.each_with_index do |resultado, index| %>
         <li>
-            <%= link_to "#" do %>
+            <%= content_tag :span do %>
                 <%= resultado.descripcion %>
+            <% end %>
+            <% if (index+1) % 4 == 0 %>
+                </ul>
+                <ul>
             <% end %>
         </li>
     <% end %>
