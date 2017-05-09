@@ -1,7 +1,5 @@
 <div class="intro-message-wrapper">
-  <div class="intro-message-content">
-    <%= @intro_message.content %>
-  </div>
+  <div class="intro-message-content"><%= @intro_message.parsed_content.html_safe %></div>
 
   <% if @intro_message.next_message.present? %>
     <div class="next-button">
