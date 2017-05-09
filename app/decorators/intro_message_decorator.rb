@@ -7,8 +7,6 @@ class IntroMessageDecorator < ApplicationDecorator
   end
 
   def parsed_content
-    renderer = Redcarpet::Render::HTML.new(hard_wrap: true)
-    markdown = Redcarpet::Markdown.new(renderer)
-    markdown.render(object.content)
+    Kramdown::Document.new(object.content).to_html
   end
 end
