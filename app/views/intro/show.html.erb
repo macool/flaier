@@ -1,10 +1,12 @@
-<div class="intro-message-content">
-  <%= @intro_message.content %>
-</div>
-
-<% if @intro_message.next_message.present? %>
-  <div class="next-button">
-    <%= link_to "next",
-                root_path(m: @intro_message.next_message.id) %>
+<div class="intro-message-wrapper">
+  <div class="intro-message-content">
+    <%= @intro_message.content %>
   </div>
-<% end %>
+
+  <% if @intro_message.next_message.present? %>
+    <div class="next-button">
+      <%= link_to "next",
+                  root_path(m: @intro_message.next_message.id) %>
+    </div>
+  <% end %>
+</div>
