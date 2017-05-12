@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170506011212) do
+ActiveRecord::Schema.define(version: 20170512041312) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,7 +80,16 @@ ActiveRecord::Schema.define(version: 20170506011212) do
     t.index ["entidad_id"], name: "index_situaciones_on_entidad_id", using: :btree
   end
 
+  create_table "subentidades", force: :cascade do |t|
+    t.string   "descripcion", null: false
+    t.integer  "entidad_id",  null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["entidad_id"], name: "index_subentidades_on_entidad_id", using: :btree
+  end
+
   add_foreign_key "estados", "situaciones"
   add_foreign_key "resultados", "estados"
   add_foreign_key "situaciones", "entidades"
+  add_foreign_key "subentidades", "entidades"
 end
