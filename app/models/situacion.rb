@@ -1,4 +1,6 @@
 class Situacion < ApplicationRecord
+  acts_as_taggable
+
   belongs_to :estado
 
   validates :estado,
