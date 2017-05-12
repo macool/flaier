@@ -12,6 +12,15 @@ ActiveAdmin.register Situacion do
 #   permitted
 # end
 
+  breadcrumb do
+    [
+      link_to('admin', admin_root_path),
+      link_to('entidades', admin_entidades_path),
+      link_to('subentidades', admin_subentidades_path),
+      link_to('estados', admin_estados_path),
+    ]
+  end
+
   form do |f|
     f.inputs do
       f.input :estado
