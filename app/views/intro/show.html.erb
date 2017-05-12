@@ -1,11 +1,15 @@
-<div class="intro-message-wrapper">
-  <div class="intro-message-content"><%= @intro_message.parsed_content.html_safe %></div>
+<div class="intro-message-wrapper survey-generic--wrapper">
+  <div class="intro-message-content survey-generic--content"><%= @intro_message.parsed_content.html_safe %></div>
 
-  <% if @intro_message.next_message.present? %>
-    <div class="next-button">
-      <%= link_to root_path(m: @intro_message.next_message.id) do %>
-        <i class="icon arrow circle right"></i>
-      <% end %>
-    </div>
-  <% end %>
+  <div class="next-button">
+    <% if @intro_message.next_message.present? %>
+      <% target_link = root_path(m: @intro_message.next_message.id) %>
+    <% else %>
+      <% target_link = surveys_path %>
+    <% end %>
+
+    <%= link_to target_link do %>
+      <i class="icon arrow circle right"></i>
+    <% end %>
+  </div>
 </div>

@@ -1,0 +1,9 @@
+.survey-generic--wrapper
+  .survey-generic--content
+    h1.ui.header.centered ¿A quién va dirigido?
+
+    .ui.button-options-wrapper
+      - @entidades.each do |entidad|
+        = link_to survey_path(entidad),
+                  class: "button-option ui button" do
+          = entidad.descripcion
