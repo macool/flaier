@@ -1,7 +1,7 @@
 class StatusController < ApplicationController
   def show
-      @entidad = Entidad.find params[:survey_id]
-      @situacion = @entidad.situaciones.find params[:id]
-      @estados = @situacion.estados
+    @entidad = Entidad.find params[:survey_id]
+    @subentidad = @entidad.subentidades.find params[:id]
+    @estados = @subentidad.estados
   end
 end

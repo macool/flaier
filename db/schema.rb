@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170512041312) do
+ActiveRecord::Schema.define(version: 20170512042911) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,11 +53,11 @@ ActiveRecord::Schema.define(version: 20170512041312) do
   end
 
   create_table "estados", force: :cascade do |t|
-    t.integer  "situacion_id", null: false
-    t.string   "descripcion",  null: false
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.index ["situacion_id"], name: "index_estados_on_situacion_id", using: :btree
+    t.string   "descripcion",   null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "subentidad_id", null: false
+    t.index ["subentidad_id"], name: "index_estados_on_subentidad_id", using: :btree
   end
 
   create_table "intro_messages", force: :cascade do |t|
@@ -73,11 +73,11 @@ ActiveRecord::Schema.define(version: 20170512041312) do
   end
 
   create_table "situaciones", force: :cascade do |t|
-    t.integer  "entidad_id",  null: false
     t.string   "descripcion", null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.index ["entidad_id"], name: "index_situaciones_on_entidad_id", using: :btree
+    t.integer  "estado_id",   null: false
+    t.index ["estado_id"], name: "index_situaciones_on_estado_id", using: :btree
   end
 
   create_table "subentidades", force: :cascade do |t|
@@ -88,8 +88,8 @@ ActiveRecord::Schema.define(version: 20170512041312) do
     t.index ["entidad_id"], name: "index_subentidades_on_entidad_id", using: :btree
   end
 
-  add_foreign_key "estados", "situaciones"
+  add_foreign_key "estados", "subentidades"
   add_foreign_key "resultados", "estados"
-  add_foreign_key "situaciones", "entidades"
+  add_foreign_key "situaciones", "estados"
   add_foreign_key "subentidades", "entidades"
 end

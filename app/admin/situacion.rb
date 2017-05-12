@@ -2,7 +2,7 @@ ActiveAdmin.register Situacion do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-  permit_params :descripcion
+  permit_params :descripcion, :estado_id
 #
 # or
 #

@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   root 'intro#show'
   resources :surveys, path: "e" do
     resources :status, path: "s" do
-      resources :results, path: "r"
+      resources :situations, path: "t" do
+        resources :results, path: "r"
+      end
     end
   end
 end

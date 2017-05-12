@@ -5,5 +5,5 @@
     .ui.button-options-wrapper
       - @subentidades.each do |subentidad|
         = link_to survey_status_path(survey_id: @entidad.id, id: subentidad.id),
-                  class: "button-option ui button" do
+                  class: "button-option ui button large" do
           = subentidad.descripcion

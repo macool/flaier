@@ -1,0 +1,9 @@
+.survey-generic--wrapper
+  .survey-generic--content
+    h1.ui.header.centered Una característica más...
+
+    .ui.button-options-wrapper
+      - @situaciones.each do |situacion|
+        = link_to survey_status_situation_result_path(survey_id: @entidad.id, status_id: @subentidad.id, situation_id: @estado.id, id: situacion.id),
+                  class: "button-option ui button large" do
+          = situacion.descripcion
