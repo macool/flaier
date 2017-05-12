@@ -1,16 +1,11 @@
 ActiveAdmin.register Situacion do
-# See permitted parameters documentation:
-# https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-#
   permit_params :descripcion, :estado_id, :tag_list
-#
-# or
-#
-# permit_params do
-#   permitted = [:permitted, :attributes]
-#   permitted << :other if params[:action] == 'create' && current_user.admin?
-#   permitted
-# end
+
+  preserve_default_filters!
+  filter :tags, collection: proc { ActsAsTaggableOn::Tag.most_used.limited }
+  filter :base_tags, collection: proc { ActsAsTaggableOn::Tag.most_used.limited }
+  remove_filter :taggings
+  remove_filter :tag_taggings
 
   breadcrumb do
     [
