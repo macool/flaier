@@ -38,11 +38,10 @@ ActiveAdmin.register Situacion do
   index do
     selectable_column
     column :id
-    column :estado
     column :descripcion
     column :tag_list
+    column :estado
     column :created_at
-    column :updated_at
     actions
   end
 end
