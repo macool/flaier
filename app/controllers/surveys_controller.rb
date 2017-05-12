@@ -1,10 +1,10 @@
 class SurveysController < ApplicationController
   def index
-      @entidades = Entidad.all
+    @entidades = Entidad.all
   end
 
   def show
-      @entidad = Entidad.find params[:id]
-      @situaciones = @entidad.situaciones
+    @entidad = Entidad.find params[:id]
+    @subentidades = @entidad.subentidades
   end
 end

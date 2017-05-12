@@ -3,7 +3,7 @@
     h1.ui.header.centered ¿A quién va dirigido?
 
     .ui.button-options-wrapper
-      - @situaciones.each do |situacion|
-        = link_to survey_status_path(survey_id: @entidad.id, id: situacion.id),
+      - @subentidades.each do |subentidad|
+        = link_to survey_status_path(survey_id: @entidad.id, id: subentidad.id),
                   class: "button-option ui button" do
-          = situacion.descripcion
+          = subentidad.descripcion
