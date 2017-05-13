@@ -1,0 +1,8 @@
+.survey-generic--wrapper
+  .survey-generic--content
+    h1.ui.header.centered Resultados
+
+    .ui.list.divided.results-list
+      - @resultados.each do |resultado|
+        .item
+          = resultado.descripcion
