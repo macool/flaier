@@ -44,7 +44,9 @@ ActiveAdmin.register Situacion do
     column :id
     column :descripcion
     column :tag_list
-    column :estado
+    column :estado do |s|
+      s.estado.descripcion
+    end
     column :subentidad
     column :created_at
     actions

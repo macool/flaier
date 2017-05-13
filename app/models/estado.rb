@@ -5,6 +5,6 @@ class Estado < ApplicationRecord
             :descripcion,
             presence: true
   def to_s
-    descripcion
+    "#{descripcion} (#{subentidad})"
   end
 end
