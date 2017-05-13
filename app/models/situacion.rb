@@ -7,6 +7,8 @@ class Situacion < ApplicationRecord
             :descripcion,
             presence: true
 
+  delegate :subentidad, to: :estado
+
   def to_s
     descripcion
   end
