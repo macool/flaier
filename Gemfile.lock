@@ -134,6 +134,10 @@ GEM
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
+    lograge (0.3.6)
+      actionpack (>= 3)
+      activesupport (>= 3)
+      railties (>= 3)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.4)
@@ -264,6 +268,7 @@ DEPENDENCIES
   jquery-rails
   kramdown
   listen (~> 3.0.5)
+  lograge
   pg (~> 0.15)
   puma (~> 3.0)
   rails (~> 5.0.2)
