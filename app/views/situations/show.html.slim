@@ -4,6 +4,11 @@
 
     .ui.button-options-wrapper
       - @situaciones.each do |situacion|
-        = link_to situacion_button_link(situacion),
-                  class: "button-option ui button large blue" do
+        = link_to survey_status_situation_results_path(survey_id: @entidad.id,
+          status_id: @subentidad.id,
+          situation_id: @estado.id,
+          id: situacion.id,
+          action: :create),
+                  class: "button-option ui button large blue",
+                  method: :post do
           = situacion.descripcion

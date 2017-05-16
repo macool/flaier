@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   resources :surveys, path: "e" do
     resources :status, path: "s" do
       resources :situations, path: "t" do
-        resources :results, path: "r"
+        resources :results, path: "r" do
+          post ':id', action: :create
+        end
       end
     end
   end
