@@ -4,6 +4,7 @@ class Subentidad < ApplicationRecord
   validates :entidad,
             :descripcion,
             presence: true
+  scope :sorted, ->{ order(sort_order: :asc) }
   def to_s
     descripcion
   end

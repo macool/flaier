@@ -5,6 +5,6 @@ class SurveysController < ApplicationController
 
   def show
     @entidad = Entidad.find params[:id]
-    @subentidades = @entidad.subentidades
+    @subentidades = @entidad.subentidades.sorted
   end
 end

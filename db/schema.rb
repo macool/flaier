@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170513014710) do
+ActiveRecord::Schema.define(version: 20170516015540) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,11 +79,13 @@ ActiveRecord::Schema.define(version: 20170513014710) do
   end
 
   create_table "subentidades", force: :cascade do |t|
-    t.string   "descripcion", null: false
-    t.integer  "entidad_id",  null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "descripcion",             null: false
+    t.integer  "entidad_id",              null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "sort_order",  default: 0
     t.index ["entidad_id"], name: "index_subentidades_on_entidad_id", using: :btree
+    t.index ["sort_order"], name: "index_subentidades_on_sort_order", using: :btree
   end
 
   create_table "taggings", force: :cascade do |t|
