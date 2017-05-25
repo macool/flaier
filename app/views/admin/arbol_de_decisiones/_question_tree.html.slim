@@ -1,0 +1,19 @@
+- entidades = Entidad.includes(subentidades: { estados: :situaciones })
+
+table.index_table
+  tbody
+    - entidades.each do |entidad|
+      - entidad.subentidades.sorted.each do |subentidad|
+        - subentidad.estados.each do |estado|
+          - estado.situaciones.each_with_index do |situacion, index|
+            tr
+              - if index == 0
+                td rowspan="#{estado.situaciones.count}" = entidad
+
+              - if index == 0
+                td rowspan="#{estado.situaciones.count}" = subentidad
+
+              - if index == 0
+                td rowspan="#{estado.situaciones.count}" = estado.descripcion
+
+              td = situacion
