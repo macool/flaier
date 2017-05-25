@@ -1,5 +1,52 @@
 - entidades = Entidad.includes(subentidades: { estados: :situaciones })
 
+h2 Viñetas
+ul
+  - entidades.each_with_index do |entidad, entidad_index|
+    li
+      = entidad_index + 1
+      ' .
+      = link_to entidad, admin_entidad_path(entidad)
+
+    - if entidad.subentidades.any?
+      ul
+        - entidad.subentidades.sorted.each_with_index do |subentidad, subentidad_index|
+          li
+            = entidad_index + 1
+            | .
+            = subentidad_index + 1
+            ' .
+            = link_to subentidad, admin_subentidad_path(subentidad)
+
+          - if subentidad.estados.any?
+            ul
+              - subentidad.estados.each_with_index do |estado, estado_index|
+                li
+                  = entidad_index + 1
+                  | .
+                  = subentidad_index + 1
+                  | .
+                  = estado_index + 1
+                  ' .
+                  = link_to estado.descripcion, admin_estado_path(estado)
+
+                - if estado.situaciones.any?
+                  ul
+                    - estado.situaciones.each_with_index do |situacion, situacion_index|
+                      li
+                        = entidad_index + 1
+                        | .
+                        = subentidad_index + 1
+                        | .
+                        = estado_index + 1
+                        | .
+                        = situacion_index + 1
+                        ' .
+                        = link_to situacion, admin_situacion_path(situacion)
+
+hr
+
+h2 Tabla
 table.index_table
   tbody
     - entidades.each do |entidad|
