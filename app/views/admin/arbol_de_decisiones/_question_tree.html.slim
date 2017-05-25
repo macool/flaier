@@ -8,12 +8,16 @@ table.index_table
           - estado.situaciones.each_with_index do |situacion, index|
             tr
               - if index == 0
-                td rowspan="#{estado.situaciones.count}" = entidad
+                td rowspan="#{estado.situaciones.count}"
+                  = link_to entidad, admin_entidad_path(entidad)
 
               - if index == 0
-                td rowspan="#{estado.situaciones.count}" = subentidad
+                td rowspan="#{estado.situaciones.count}"
+                  = link_to subentidad, admin_subentidad_path(subentidad)
 
               - if index == 0
-                td rowspan="#{estado.situaciones.count}" = estado.descripcion
+                td rowspan="#{estado.situaciones.count}"
+                  = link_to estado.descripcion, admin_estado_path(estado)
 
-              td = situacion
+              td
+                = link_to situacion, admin_situacion_path(situacion)
